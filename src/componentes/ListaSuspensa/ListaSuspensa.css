@@ -1,0 +1,21 @@
+.lista-suspensa label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lista-suspensa select {
+  background-color: #fff;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+  border: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+
+  width: 100%;
+  padding: 24px;
+}
+
+.campo-texto input::placeholder {
+  opacity: 0.6;
+}
