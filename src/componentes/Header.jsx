@@ -2,7 +2,7 @@ import logo from '../assets/logoipsum-296.svg';
 
 const Header = () => {
     return (
-        <header className='flex items-center justify-between m-5'>
+        <header className='flex items-center gap-10 flex-col sm:flex-row sm:justify-between m-5'>
             <div className='flex items-center gap-2'>
                 <img src={logo} alt="Organo" />
                 <span className='text-xl font-bold'>Organo</span>

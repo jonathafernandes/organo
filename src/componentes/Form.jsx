@@ -39,7 +39,7 @@ const Form = ({ teams, registerTeam }) => {
 
   return (
     <>
-      <div className="flex items-start justify-evenly my-20">
+      <div id="form" className="flex-col mx-4 flex items-start sm:flex-row justify-evenly my-20 gap-4">
         <form onSubmit={onSubmit}>
           <h2 className="bg-zinc-700 border-solid border-2 border-blue-500 p-2 rounded">Preencha os dados para criar um card de colaborador</h2>
           <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
