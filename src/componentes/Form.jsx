@@ -4,96 +4,129 @@ import PropTypes from "prop-types";
 import FormButton from "./FormButton";
 import DropdownList from "./DropdownList";
 import TextField from "./TextField";
+import Employee from "./Employee";
 
-const Form = ({ onRegister, teams, registerTeam }) => {
+const Form = ({ teams, registerTeam }) => {
   const [name, setName] = useState("");
-  const [position, setPosition] = useState("");
+  const [role, setRole] = useState("");
   const [image, setImage] = useState("");
   const [team, setTeam] = useState("");
+
   const [teamName, setTeamName] = useState("");
   const [teamColor, setTeamColor] = useState("");
 
+  const [teamList, setTeamList] = useState(false)
+
+  const [cards, setCards] = useState([]);
+
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("form submitted", name, position, image, team);
-    onRegister({
+    console.log("form submitted", name, role, image, team);
+    const newCard = {
       name,
-      position,
+      role,
       image,
       team
-    });
+    };
+    setCards([...cards, newCard]);
+    setName("");
+    setRole("");
+    setImage("");
+    setTeam("");
+    setTeamList(true);
+    alert("Criado com sucesso! ✅⏬");
   };
 
   return (
-    <section className="flex items-start justify-evenly">
-      <form onSubmit={onSubmit}>
-        <h2 className="bg-zinc-700 p-2 rounded">Preencha os dados para criar um card de colaborador</h2>
-        <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
-          <TextField
-            required={true}
-            label="Nome"
-            placeholder="Digite o nome do colaborador"
-            value={name}
-            onChange={(value) => setName(value)}
-          />
-          <TextField
-            required={true}
-            label="Cargo"
-            placeholder="Digite o cargo do colaborador"
-            value={position}
-            onChange={(value) => setPosition(value)}
-          />
-          <TextField
-            label="Imagem"
-            placeholder="Digite a URL da imagem"
-            onChange={(value) => setImage(value)}
-          />
-          <DropdownList
-            required={true}
-            label="Time"
-            items={teams}
-            value={team}
-            onChange={(value) => setTeam(value)}
+    <>
+      <div className="flex items-start justify-evenly my-20">
+        <form onSubmit={onSubmit}>
+          <h2 className="bg-zinc-700 border-solid border-2 border-blue-500 p-2 rounded">Preencha os dados para criar um card de colaborador</h2>
+          <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
+            <TextField
+              required={true}
+              label="Nome"
+              placeholder="Digite o nome do colaborador"
+              value={name}
+              onChange={(value) => setName(value)}
             />
-          <FormButton text="Criar card" />
-        </div>
-      </form>
-      <span className="bg-zinc-700 p-2 rounded">ou</span>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          registerTeam({ name: teamName, color: teamColor });
-        }}
-      >
-        <h2 className="bg-zinc-700 p-2 rounded">preencha os dados para criar um novo time.</h2>
-        <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
-          <TextField
-            required
-            label="Nome"
-            placeholder="Digite o nome do time"
-            value={teamName}
-            onChange={(value) => setTeamName(value)}
-          />
-          <TextField
-            required
-            label="Cor do time"
-            placeholder="Escollha uma cor"
-            value={teamColor}
-            onChange={(value) => setTeamColor(value)}
-            type="color"
-          />
-          <FormButton text="Criar novo time" />
-        </div>
-      </form>
-    </section>
+            <TextField
+              required={true}
+              label="Cargo"
+              placeholder="Digite o cargo do colaborador"
+              value={role}
+              onChange={(value) => setRole(value)}
+            />
+            <TextField
+              label="Imagem"
+              placeholder="Digite a URL da imagem"
+              value={image}
+              onChange={(value) => setImage(value)}
+            />
+            <DropdownList
+              required={true}
+              label="Time"
+              items={teams}
+              value={team}
+              onChange={(value) => setTeam(value)}
+            />
+            <FormButton text="Criar card" />
+          </div>
+        </form>
+        <span className="bg-zinc-700 p-2 rounded">ou</span>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            registerTeam({ name: teamName, color: teamColor });
+          }}
+        >
+          <h2 className="bg-zinc-700 border-solid border-2 border-blue-500 p-2 rounded">preencha os dados para criar um novo time.</h2>
+          <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
+            <TextField
+              required
+              label="Nome"
+              placeholder="Digite o nome do time"
+              value={teamName}
+              onChange={(value) => setTeamName(value)}
+            />
+            <TextField
+              required
+              label="Cor do time"
+              placeholder="Escolha uma cor"
+              value={teamColor}
+              onChange={(value) => setTeamColor(value)}
+              type="color"
+            />
+            <FormButton text="Criar novo time" />
+          </div>
+        </form>
+      </div>
+      {teamList ? (
+        <>
+          <h2 className="text-xl text-center w-1/2 my-0 mx-auto bg-zinc-700 border-solid border-2 border-blue-500 p-2 rounded">Minha organização</h2>
+          <div className="flex justify-center gap-6 flex-wrap mt-8 mb-20">
+            {cards.map((card, index) => (
+              <Employee
+                key={index}
+                name={card.name}
+                role={card.role}
+                image={card.image}
+                team={card.team}
+              />
+            ))}
+          </div>
+        </>
+      ): (
+        <h2 className="text-xl text-center w-1/2 my-20 mx-auto p-2 rounded">Nenhum card criado ainda...</h2>
+      )}
+    </>
   );
 };
 
 Form.propTypes = {
-  onRegister: PropTypes.func.isRequired,
-  teams: PropTypes.array.isRequired,
-  registerTeam: PropTypes.func.isRequired,
+  onRegister: PropTypes.func,
+  teams: PropTypes.array,
+  registerTeam: PropTypes.func,
 };
 
 export default Form;
-
