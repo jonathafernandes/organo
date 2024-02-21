@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import PropTypes from "prop-types";
-import FormButton from "./FormButton";
+import Button from "./Button";
 import DropdownList from "./DropdownList";
 import TextField from "./TextField";
 import Employee from "./Employee";
@@ -21,7 +21,6 @@ const Form = ({ teams, registerTeam }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("form submitted", name, role, image, team);
     const newCard = {
       name,
       role,
@@ -78,7 +77,7 @@ const Form = ({ teams, registerTeam }) => {
               value={team}
               onChange={(value) => setTeam(value)}
             />
-            <FormButton text="Criar card" />
+            <Button text="Criar card" />
           </div>
         </form>
         <span className="bg-zinc-700 p-2 rounded">ou</span>
@@ -102,7 +101,7 @@ const Form = ({ teams, registerTeam }) => {
               onChange={(value) => setTeamColor(value)}
               type="color"
             />
-            <FormButton text="Criar novo time" />
+            <Button text="Criar novo time" />
           </div>
         </form>
       </div>
