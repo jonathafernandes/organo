@@ -8,7 +8,9 @@ _Gerencie seus times._
 
 ---
 
- Visite: _https://organo-jonathafernandes.vercel.app/_
+Feito com **React**, **Tailwind** e **Vite**. 
+
+Visite: _https://organo-jonathafernandes.vercel.app/_
 
 ---
 
