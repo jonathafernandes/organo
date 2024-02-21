@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import Form from "./Form";
 
-const Teams = () => {
+const Main = () => {
     const [team, setTeam] = useState([
         {
             id: uuidv4(),
@@ -61,4 +61,4 @@ const Teams = () => {
     );
 };
 
-export default Teams;
+export default Main;

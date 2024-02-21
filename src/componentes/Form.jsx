@@ -37,9 +37,17 @@ const Form = ({ teams, registerTeam }) => {
     alert("Criado com sucesso! ✅⏬");
   };
 
+  const handleRegisterTeam = (event) => {
+    event.preventDefault();
+    registerTeam({ name: teamName, color: teamColor });
+    setTeamName("");
+    setTeamColor("");
+    alert("Time criado com sucesso! ✅");
+  };
+
   return (
     <>
-      <div id="form" className="flex-col items-center mx-4 flex sm:items-start sm:flex-row justify-evenly my-20 gap-4">
+      <div className="flex-col items-center mx-4 flex sm:items-start sm:flex-row justify-evenly my-24 gap-4">
         <form onSubmit={onSubmit}>
           <h2 className="bg-zinc-700 border-solid border-2 border-blue-500 p-2 rounded">Preencha os dados para criar um card de colaborador</h2>
           <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
@@ -75,10 +83,7 @@ const Form = ({ teams, registerTeam }) => {
         </form>
         <span className="bg-zinc-700 p-2 rounded">ou</span>
         <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            registerTeam({ name: teamName, color: teamColor });
-          }}
+          onSubmit={handleRegisterTeam}
         >
           <h2 className="bg-zinc-700 border-solid border-2 border-blue-500 p-2 rounded">preencha os dados para criar um novo time.</h2>
           <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded p-4 mt-5">
