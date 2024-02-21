@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import notFoundImage from "../assets/not-found-img.svg";
 
 const Employee = ({ name, role, image, team }) => {
   return (
@@ -6,7 +7,7 @@ const Employee = ({ name, role, image, team }) => {
       <div className="flex items-center flex-col justify-center text-center gap-4 size-52">
         <img
           className="size-20 rounded-full"
-          src={image || "https://placekitten.com/300/300"}
+          src={image || notFoundImage}
           alt={name}
         />
         <div>

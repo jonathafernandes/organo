@@ -7,7 +7,7 @@ const Header = () => {
                 <img src={logo} alt="Organo" />
                 <span className='text-xl font-bold'>Organo</span>
             </div>
-            <a id="about" className='border-solid border-2 border-blue-500 bg-blue-600 rounded p-2 font-medium hover:bg-blue-500'>
+            <a href='#footer' className='border-solid border-2 border-blue-500 bg-blue-600 rounded p-2 font-medium hover:bg-blue-500 cursor-pointer'>
                 Saiba mais
             </a>
         </header>
