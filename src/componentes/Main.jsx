@@ -8,42 +8,37 @@ const Main = () => {
         {
             id: uuidv4(),
             favorite: false,
-            name: "Programação",
-            color: "#57C278",
-        },
-        {
-            name: "Front-End",
-            color: "#82CFFA",
+            name: "Time A",
         },
         {
             id: uuidv4(),
             favorite: false,
-            name: "Data Science",
-            color: "#A6D157",
+            name: "Time B",
         },
         {
             id: uuidv4(),
             favorite: false,
-            name: "Devops",
-            color: "#E06B69",
+            name: "Time C",
         },
         {
             id: uuidv4(),
             favorite: false,
-            name: "UX e Design",
-            color: "#DB6EBF",
+            name: "Time D",
         },
         {
             id: uuidv4(),
             favorite: false,
-            name: "Mobile",
-            color: "#FFBA05",
+            name: "Time E",
         },
         {
             id: uuidv4(),
             favorite: false,
-            name: "Inovação e Gestão",
-            color: "#FF8A29",
+            name: "Time F",
+        },
+        {
+            id: uuidv4(),
+            favorite: false,
+            name: "Time G",
         },
     ]);
 

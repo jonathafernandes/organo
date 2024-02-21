@@ -41,7 +41,16 @@ const Form = ({ teams, registerTeam }) => {
     registerTeam({ name: teamName, color: teamColor });
     setTeamName("");
     setTeamColor("");
+
     alert("Time criado com sucesso! ✅");
+  };
+
+  const handleDeleteCard = (index) => {
+    const updatedCards = [...cards];
+    updatedCards.splice(index, 1);
+    setCards(updatedCards);
+    
+    alert("Card excluído com sucesso! ✅");
   };
 
   return (
@@ -116,11 +125,12 @@ const Form = ({ teams, registerTeam }) => {
                 role={card.role}
                 image={card.image}
                 team={card.team}
+                onDelete={() => handleDeleteCard(index)}
               />
             ))}
           </div>
         </>
-      ): (
+      ) : (
         <h2 className="text-xl text-center w-1/2 my-20 mx-auto p-2 rounded">Nenhum card criado ainda...</h2>
       )}
     </>
