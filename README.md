@@ -4,7 +4,15 @@
 
 _Gerencie seus times._
 
+<img src="./src/assets/screenshot-1.png" alt="" width="90%">
+
 ---
+
+ Visite: _https://organo-jonathafernandes.vercel.app/_
+
+---
+
+<br/>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 Currently, two official plugins are available:
