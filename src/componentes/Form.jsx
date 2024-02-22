@@ -131,7 +131,7 @@ const Form = ({ teams, registerTeam }) => {
           </div>
         </>
       ) : (
-        <h2 className="text-xl text-center w-1/2 my-20 mx-auto p-2 rounded">Nenhum card criado ainda...</h2>
+        <h2 className="text-xl text-center mx-auto p-2 rounded sm:my-20">Nenhum card criado ainda...</h2>
       )}
     </>
   );
