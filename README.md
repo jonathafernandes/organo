@@ -2,7 +2,7 @@
 
 ### Organo
 
-_Gerencie seus times._
+_Gerencie suas organizações._
 
 <img src="./src/assets/screenshot-1.png" alt="" width="90%">
 
