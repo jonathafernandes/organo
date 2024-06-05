@@ -11,7 +11,7 @@ const DropdownList = ({label, items, value, onChange, required = false}) => {
                 onChange={evento => onChange(evento.target.value)}
             >
             <option />
-                {items.map(item => <option key={item}>{item}
+                {items.map((item, index) => <option key={`${item}-${index}`}>{item}
             </option>)}
             </select>
         </div>

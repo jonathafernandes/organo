@@ -13,7 +13,7 @@ const Form = ({ teams, registerTeam }) => {
   const [team, setTeam] = useState("");
 
   const [teamName, setTeamName] = useState("");
-  const [teamColor, setTeamColor] = useState("");
+  const [teamColor, setTeamColor] = useState("#2563eb");
 
   const [teamList, setTeamList] = useState(false)
 
@@ -25,7 +25,8 @@ const Form = ({ teams, registerTeam }) => {
       name,
       role,
       image,
-      team
+      team,
+      teamColor
     };
     setCards([...cards, newCard]);
     setName("");
@@ -33,6 +34,7 @@ const Form = ({ teams, registerTeam }) => {
     setImage("");
     setTeam("");
     setTeamList(true);
+
     alert("Criado com sucesso! ✅⏬");
   };
 
@@ -40,7 +42,6 @@ const Form = ({ teams, registerTeam }) => {
     event.preventDefault();
     registerTeam({ name: teamName, color: teamColor });
     setTeamName("");
-    setTeamColor("");
 
     alert("Time criado com sucesso! ✅");
   };
@@ -126,8 +127,9 @@ const Form = ({ teams, registerTeam }) => {
                 image={card.image}
                 team={card.team}
                 onDelete={() => handleDeleteCard(index)}
-              />
-            ))}
+                teamColor={card.teamColor}
+                />
+              ))}
           </div>
         </>
       ) : (

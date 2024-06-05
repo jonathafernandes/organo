@@ -1,12 +1,12 @@
-import Footer from "./componentes/Footer";
-import Header from "./componentes/Header";
-import Main from "./componentes/Main";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <div className="mt-16 flex flex-col items-center gap-4">
         <h1 className="mx-1 text-3xl text-center font-semibold sm:mx-4">Crie e gerencie seus times. Comece agora!</h1>
@@ -15,7 +15,7 @@ function App() {
       <Main />
       <hr className="w-1/2 my-40 mx-auto" />
       <Footer />
-    </div>
+    </>
   );
 }
 

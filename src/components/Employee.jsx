@@ -3,9 +3,11 @@ import notFoundImage from "../assets/not-found-img.svg";
 
 import { PiTrashSimple } from "react-icons/pi";
 
-const Employee = ({ name, role, image, team, onDelete }) => {
+const Employee = ({ name, role, image, team, onDelete, teamColor }) => {
   return (
-    <div className="bg-zinc-700 border-solid border-2 border-zinc-500 rounded px-4 my-5">
+    <div className={`bg-zinc-700 border-solid border-2 rounded px-4 my-5`}
+    style={{borderColor: teamColor}}
+    >
       <div className="flex items-center flex-col justify-center text-center gap-4 size-56">
         <img
           className="size-20 rounded-full"
@@ -24,11 +26,12 @@ const Employee = ({ name, role, image, team, onDelete }) => {
 };
 
 Employee.propTypes = {
-  name: PropTypes.string,
-  role: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
   image: PropTypes.string,
-  team: PropTypes.string,
+  team: PropTypes.string.isRequired,
   onDelete: PropTypes.func,
+  teamColor: PropTypes.string.isRequired
 };
 
 export default Employee;
