@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
 import Button from "./Button";
@@ -19,6 +19,14 @@ const Form = ({ teams, registerTeam }) => {
 
   const [cards, setCards] = useState([]);
 
+  useEffect(() => {
+    const storedCards = localStorage.getItem("cards");
+    if (storedCards) {
+      setCards(JSON.parse(storedCards));
+      setTeamList(true);
+    }
+  }, []);
+
   const onSubmit = (event) => {
     event.preventDefault();
     const newCard = {
@@ -34,7 +42,12 @@ const Form = ({ teams, registerTeam }) => {
     setImage("");
     setTeam("");
     setTeamList(true);
-
+    
+    const storedCards = localStorage.getItem("cards");
+    const updatedCards = storedCards ? JSON.parse(storedCards) : [];
+    updatedCards.push(newCard);
+    localStorage.setItem("cards", JSON.stringify(updatedCards));
+  
     alert("Criado com sucesso! ✅⏬");
   };
 
@@ -50,6 +63,7 @@ const Form = ({ teams, registerTeam }) => {
     const updatedCards = [...cards];
     updatedCards.splice(index, 1);
     setCards(updatedCards);
+    localStorage.setItem("cards", JSON.stringify(updatedCards));
     
     alert("Card excluído com sucesso! ✅");
   };
